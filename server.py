@@ -24,3 +24,13 @@ def bind_socket():
 	except socket.error as msg:
 		print("socket binding error "+str(msg)+"\n retrying")
 		bind_socket()
+#Establish connection with the client (the socket must be listening )
+def socket_accept():
+	conn,address = s.accept()
+	#accepts the connection and returns the obj of the connection adn 2nd is the ip add and the port 
+	print("Connection has been Established with IP :"+address[0]+" and Port "+str(address[1]))
+	send_commands(conn)
+
+
+	#closing the connection
+	conn.close()
