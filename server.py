@@ -1,4 +1,5 @@
 import socket
+import sys
 def create_socket():
 	try:
 		global host
@@ -34,3 +35,13 @@ def socket_accept():
 
 	#closing the connection
 	conn.close()
+	
+#sending commands to the client
+def send_commands(conn):  
+	while True:
+		cmd = input()
+		if cmd=="quit":
+			conn.close()
+			s.close()
+			sys.exit()
+		
